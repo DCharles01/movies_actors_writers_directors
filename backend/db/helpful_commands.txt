@@ -1,0 +1,6 @@
+sqlite3 films.db << EOF
+> .headers on
+> .mode csv
+> .output ../data/movies.csv
+> select * from movies;
+> EOF

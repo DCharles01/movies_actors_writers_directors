@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies, Actors, Director, Writers Lookup!</title>
+</head>
+<body>
+    <h1>Search Movies Database</h1>
+    <form method="post" action="/movies/search" onsubmit="return search()">
+        <label for="search_query">Search:</label>
+        <input type="text" id="search_query" name="search_query">
+        <button type="submit">Search</button>
+    </form>
+
+    <input type="text" id="searchInput" placeholder="Search table results">
+    <div id="results">
+        {% if results %}
+            <table border="1" id="dataTable">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Studio</th>
+                    <th>Runtime</th>
+                    <th>Description</th>
+                    <th>Release Date</th>
+                    <th>Year</th>
+                </tr>
+                {% for result in results %}
+                    <tr>
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                        <td>{{ result[3] }}</td>
+                        <td>{{ result[4] }}</td>
+                        <td>{{ result[5] }}</td>
+                        <td>{{ result[6] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No results found</p>
+        {% endif %}
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+</body>
+
+
+
+
+</html>

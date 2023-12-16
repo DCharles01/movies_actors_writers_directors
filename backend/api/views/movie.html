@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies</title>
+        <script>
+            // make function module: ask user to search by name or movies an actor acted in
+            function searchMovieByName() {
+                // get search value
+                var movieName = document.getElementById("searchInput").value
+                var rootLink = 'http://127.0.0.1:5001/movies?title='
+                // check movie id is not blank or empty
+                if (movieName !== '') {
+                    // generate link
+                    var fullLink = rootLink + movieName
+
+                    // open link in tab
+                    // window.location.href = fullLink
+                    window.open(fullLink, '_blank')
+                    // alert(fullLink)
+                    
+                } else {
+                    alert('Please enter a movie name!')
+                }
+            }
+        </script>
+    </head>
+    
+
+    <h1>Welcome to Movies Page!</h1>
+    <h2>You'll be able to search for movies by their id here (not ideal, I know!)</h2>
+    <body>
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" placeholder="Enter Movie name">
+        <button onclick="searchMovieByName()">Search</button>
+
+    
+    </body>
+
+</html>
