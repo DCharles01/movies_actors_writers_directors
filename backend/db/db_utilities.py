@@ -1,10 +1,10 @@
 from flask import current_app
 from flask import g
 import psycopg2
-from settings import DB_USER, DB_NAME, DB_HOST, DB_PASSWORD, DB_NAME_TEST
+from settings import DB_USER, DB_NAME, DB_HOST, DB_PASSWORD
 
 # change database name for testing
-conn = psycopg2.connect(host = DB_HOST, database = DB_NAME_TEST,
+conn = psycopg2.connect(host = DB_HOST, database = DB_NAME,
         user = DB_USER, password = DB_PASSWORD)
 
 cursor = conn.cursor()

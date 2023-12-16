@@ -32,13 +32,13 @@ class Actor(models.BaseClass):
     def movies(self, cursor):
         movie_query = f"""
         select
-            movies_test.*
+            movies.*
         from
-            movies_test
+            movies
         inner join
-            movie_actors_test on movies_test.id = movie_actors_test.actor_id
+            movie_actors on movies.id = movie_actors.actor_id
         where
-            movie_actors_test.actor_id = %s
+            movie_actors.actor_id = %s
         """
         cursor.execute(movie_query, (self.id,))
         movies = cursor.fetchall()
