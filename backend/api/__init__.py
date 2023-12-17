@@ -7,7 +7,7 @@ from api.models import Actor, Movie
 
 def create_app(database, user):
 
-    app = Flask(__name__, static_folder='static', template_folder='views')
+    app = Flask(__name__, static_folder='../../frontend/static', template_folder='../../frontend/views')
 
     app.config.from_mapping(
         DATABASE=database,
